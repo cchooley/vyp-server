@@ -5,6 +5,7 @@ const morgan = require("morgan");
 const app = express();
 
 const students = require("./routes/students");
+const scholarships = require("./routes/scholarships");
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
@@ -16,11 +17,8 @@ app.get('/', (req, res) => {
   })
 })
 
-app.post('/accept-payment', (req, res) => {
-  res.json(req.body)
-})
-
 app.use("/students", students);
+app.use("/scholarships", scholarships);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
