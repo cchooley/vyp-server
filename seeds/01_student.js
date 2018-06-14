@@ -16,7 +16,6 @@ exports.seed = function (knex, Promise) {
         })
         .returning('*')
         .then(([student]) => {
-          console.log(student)
           return knex("scholarship").insert({ 
             id: 1,
             receivedBy: student.name,
