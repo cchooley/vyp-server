@@ -9,14 +9,19 @@ exports.up = function(knex, Promise) {
             table.string('contactRelation')
             table.string('contactPhone')
             table.date('enrolledOn')
-            table.boolean('scholarship')
+            table.string('paymentStatus')
         }),
 
         knex.schema.createTable('scholarship', (table) => {
             table.increments('id')
-            table.text('receivedBy')
-                table.foreign('receivedBy').references('name').inTable('student')
-            table.text('verifiedBy')
+            table.text('name').unique()
+            table.integer('age')
+            table.string('contactEmail')
+            table.string('emergencyContact')
+            table.string('contactRelation')
+            table.string('contactPhone')
+            table.date('enrolledOn')
+            table.string('verifiedBy')
         })
     ])
 };
